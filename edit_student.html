@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Edit Student</title>
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card shadow border-0 p-4">
+                    <h3 class="text-primary mb-4">Update Student Details</h3>
+                    
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label class="form-label">Roll Number</label>
+                            <input type="text" name="roll" value="{{ student.roll_no }}" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" name="name" value="{{ student.full_name }}" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Course Name</label>
+                            <input type="text" name="course" value="{{ student.course }}" class="form-control" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-100">Update Student</button>
+                        <a href="{% url 'home' %}" class="btn btn-link w-100 mt-2 text-decoration-none text-muted">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
